@@ -4,13 +4,10 @@ $(document).ready(function(){
 	var duration;
 	var counter;
 
-	/*Prevent the default form submit when users hit enter */
-    $(window).keydown(function(event){
-         if(event.keyCode == 13) {
-             event.preventDefault();
-             return false;
-         }
-    });
+	/* Prevent the default form submit when users hit enter */
+    $(window).keypress(preventSubmit);
+    $(window).keydown(preventSubmit);
+    $(window).keyup(preventSubmit);
 
     /* Puff up belt image when hovering over for emphasis */
     $(".belt").hover(makeBigger,returnToOriginalSize);
@@ -40,26 +37,30 @@ $(document).ready(function(){
     /* A user can hit enter or click Hi-ya! button to check their answer */
     $('#dojo-container').on('keydown','input.userAnswer', function(event){
     	 if(event.keyCode == 13){
-    		evaluateAnswer();
+    		 evaluateAnswer();
     	}
     });
     $('#dojo-container').on('click','button.hi-ya', evaluateAnswer);
 
 
-     
-     $(".run-away").click(function(){
+   $(".run-away").click(function(){
      	location.reload();
-     });
+     }); 
 
 
+    function preventSubmit(){
+    	if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    }
 
     function nextQuestion(){
-    	count = -1; 
-    	$(".userAnswer").val('');
-        clearInterval(counter);     
-        countDown();    
-        getEquation();        
-        
+    	 count = -1; 
+    	 $(".userAnswer").val('');
+         clearInterval(counter);     
+         countDown();    
+         getEquation();              
     }
 
 
@@ -208,6 +209,7 @@ $(document).ready(function(){
 		}
 		return curBeltObj;
 	} 
+
 });
 
 

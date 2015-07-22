@@ -14,23 +14,23 @@ $(document).ready(function(){
 
 
     /* When a user makes their belt selection */
-    $(".belt").click(function(){
+    $(".belt").click(function(event){
+
+    	 $(".navbar-collapse").collapse('hide');
 
          /* Set properties associated with Belt Object */
-         var beltId = this.id;
+         var beltId = event.target.id;
          curBeltObj = getBelt(beltId);
 
          /* Hide belts other than selected */
          showOne(curBeltObj.id);
+         
+         if($(".progress").length == 0) {
+             createDojo();
+         }
 
-         /* Create the elements of the Dojo! */
-         createDojo();
-
-         getEquation();
-
-         /* Set the timer */
          duration = curBeltObj.time;
-         countDown();
+         nextQuestion();
    
     });  
 
@@ -46,6 +46,18 @@ $(document).ready(function(){
    $(".run-away").click(function(){
      	location.reload();
      }); 
+
+   /* Show hamburger menu items */
+   $(".navbar-toggle").click(function(){
+       $('.mobile-belt').removeClass('hide');
+   });
+
+   /* Hide hamburger menu items at a certain size */
+   $(window).resize(function(){
+       if ($(window).width() > 768){
+       	$('.mobile-belt').addClass('hide');
+       }
+   });
 
 
     function preventSubmit(){
@@ -121,12 +133,12 @@ $(document).ready(function(){
          $("#dojo-container").append(
       	                         '<div class="progress">' 
                                  +  '<div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"' 
-                                 +  'style="width:0%"></div></div>').addClass("dojo");
+                                 +  'style="width:0%"></div></div>').addClass("dojo col-xs-4 col-xs-offset-4");
 
          /* Awesome looking ninja gate */
-         $("#dojo-container").append('<img src="img/ninjagate.png" />').addClass("dojo");
+         $("#dojo-container").append('<img class="img-responsive" src="img/ninjagate.png" />').addClass("dojo col-xs-4 col-xs-offset-4");
 
-         $("#dojo-container").append('<div id="equation"></div>');
+         $("#dojo-container").append('<div id="equation"></div>').addClass("col-xs-4");
          $("#equation").append("<p></p>");
 
          /* Form for user to enter equation answer */

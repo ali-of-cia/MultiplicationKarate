@@ -1,4 +1,3 @@
-
 /*
  * Base structure
  */
@@ -26,13 +25,47 @@ body {
   background-color: #6f5499;
   border: 0;
 }
-.userButton {
-  background-color: #FF580C;
-  margin-top: 7px;
-  margin-right: 10px;
-}
 .navbar-inverse .navbar-nav>li>a{
   color: #FAF6F6;
+}
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse  {
+  max-height: none;
+}    
+.run-away{
+  background-color: #FF580C;
+  margin-left: 0.75em;
+  color : #FAF6F6;
+}
+.mobile-belt{
+  font-weight: bold; 
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+#white{
+  color: #FFFFFF;
+}
+#yellow{
+  color: #FFFF00;
+}
+#orange{
+  color: #FF4000;
+}
+#green{
+  color: #04B404;
+}
+#blue{
+  color: #2E64FE;
+}
+#purple{
+  color: #9A2EFE;
+}
+#brown{
+  color: #A66829;
+}
+#red{
+  color: #FF0000;
+}
+#black{
+  color: #000000;
 }
 
 /*
@@ -46,45 +79,18 @@ body {
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
-    top: 51px;
+    top: 4em;
     bottom: 0;
     left: 0;
     z-index: 1000;
     display: block;
     padding: 20px;
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    overflow-y: auto;   
   }
-}
+} 
 
-/* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-/* Side Bar Belt Images */
-.nav-sidebar > li > img {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-/* So that animate() can be used on img elements */
-#white, #yellow, #orange, #green, #blue, #purple, #brown, #red, #black {
-    position: relative;
-    clear: both;
-    float: left;
-    display: block;
-}
-.run-away{
-  background-color: #FF580C;
-  margin-left: 10px;
-  color : #FAF6F6;
-}
-
-
-/*
- * Main content
- */
+/* Main Content */
 
 .cover-container {
   color: #FF580C;
@@ -101,34 +107,23 @@ body {
     padding-left: 40px;
   }
 }
-.main .page-header {
-  margin-top: 0;
-}
 .dojo{
-  margin-top: 100px;
+  margin-top: 2.5em;
   text-align: -webkit-center;
 }
-#equation{
-  position: absolute;
-  top: 400px;
-  right:650px; 
+#equation{ 
   font-weight: bold;
   font-size: 3.5em;
   z-index: 2;
   color:#665687;
 }
 .progress{
-  width: 30%;
-  height: 60px;
+  margin-top: 3.5em;
 }
 .form-group{
- font-size: 20px;
+ font-size: 2em;
  color: #FF580C;
 }
-.form-control{
-  width: 200px;
-}
-
 
 /* Footer Content */
 .footer {
